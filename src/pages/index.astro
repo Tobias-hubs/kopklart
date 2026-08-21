@@ -1,6 +1,6 @@
----
+-----
 import { getCollection } from "astro:content";
-import "../styles/global.css";
+import "../../styles/global.css";
 
 const articles = await getCollection("articles");
 ---
@@ -10,11 +10,11 @@ const articles = await getCollection("articles");
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
 
-    <title>Köpklart – Hjälp att välja rätt produkt</title>
+    <title>Robotdammsugare 2026 | Köpklart</title>
 
     <meta
       name="description"
-      content="Köpguider och jämförelser som hjälper dig hitta rätt produkt."
+      content="Våra guider och jämförelser hjälper dig hitta rätt robotdammsugare."
     />
   </head>
 
@@ -28,52 +28,55 @@ const articles = await getCollection("articles");
       </nav>
     </header>
 
-    <main>
-      <section class="home-hero">
-        <div class="hero-content">
-          <p class="eyebrow">Köpklart</p>
+    <main class="category-page">
 
-          <h1>
-            Hitta rätt produkt.
-            <br />
-            Utan krångel.
-          </h1>
+      <section class="category-hero">
+        <p class="eyebrow">Köpklart · Robotdammsugare</p>
 
-          <p class="hero-description">
-            Vi jämför produkter, funktioner och priser
-            så att du enklare kan välja rätt.
-          </p>
+        <h1>Robotdammsugare</h1>
 
-          <a href="/robotdammsugare" class="hero-button">
-            Se våra guider →
-          </a>
-        </div>
+        <p>
+          Vi jämför robotdammsugare och hjälper dig hitta en modell
+          som passar ditt hem, dina behov och din budget.
+        </p>
       </section>
 
-      <section class="home-section">
-        <div class="section-heading">
-          <p class="eyebrow">Guider</p>
-          <h2>Senaste guiderna</h2>
+      <section class="category-content">
+
+        <div class="category-heading">
+          <p class="eyebrow">Våra guider</p>
+          <h2>Robotdammsugare värda att kolla in</h2>
         </div>
 
-        <div class="article-list">
+        <div class="category-articles">
           {
             articles.map((article) => (
-              <article class="article-card">
-                <p class="eyebrow">{article.data.category}</p>
+              <a
+                class="category-article"
+                href={`/robotdammsugare/${article.id}`}
+              >
+                <div>
+                  <p class="article-category">
+                    {article.data.category}
+                  </p>
 
-                <h3>{article.data.title}</h3>
+                  <h3>{article.data.title}</h3>
 
-                <p>{article.data.description}</p>
+                  <p class="article-summary">
+                    {article.data.description}
+                  </p>
+                </div>
 
-                <a href={`/robotdammsugare/${article.id}`}>
+                <span class="article-link">
                   Läs guiden →
-                </a>
-              </article>
+                </span>
+              </a>
             ))
           }
         </div>
+
       </section>
+
     </main>
   </body>
 </html>
