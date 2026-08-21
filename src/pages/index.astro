@@ -1,17 +1,61 @@
 ---
-
+import "../styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Köpklart – hjälp att välja rätt</title>
+    <meta
+      name="description"
+      content="Köpklart hjälper dig att jämföra produkter och hitta rätt köp."
+    />
+  </head>
+
+  <body>
+    <header>
+      <a href="/" class="logo">Köpklart</a>
+
+      <nav>
+        <a href="/">Hem</a>
+        <a href="/robotdammsugare">Robotdammsugare</a>
+        <a href="/guider">Guider</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Köp smartare</p>
+
+        <h1>Vi hjälper dig välja rätt.</h1>
+
+        <p>
+          Jämförelser, guider och rekommendationer som gör det enklare
+          att hitta rätt produkt.
+        </p>
+
+        <a href="/robotdammsugare" class="button">
+          Se robotdammsugare
+        </a>
+      </section>
+
+      <section>
+        <h2>Populärt just nu</h2>
+
+        <article>
+          <p>Robotdammsugare</p>
+          <h3>Bästa robotdammsugarna 2026</h3>
+          <p>
+            Vi jämför populära robotdammsugare och hjälper dig hitta
+            rätt modell för ditt hem.
+          </p>
+
+          <a href="/robotdammsugare">
+            Läs guiden →
+          </a>
+        </article>
+      </section>
+    </main>
+  </body>
 </html>

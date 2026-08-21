@@ -1,0 +1,74 @@
+---
+import "../styles/global.css";
+import ProductCard from "../components/ProductCard.astro";
+
+const products = [
+  {
+    name: "Roborock Qrevo",
+    description: "En komplett robotdammsugare med självtömning och moppning.",
+    price: "Från 5 999 kr",
+  },
+  {
+    name: "Dreame L40 Ultra",
+    description: "Premiumalternativ med avancerad rengöring och moppning.",
+    price: "Från 8 999 kr",
+  },
+  {
+    name: "Xiaomi Robot Vacuum",
+    description: "Ett billigare alternativ för dig som vill komma undan billigare.",
+    price: "Från 3 499 kr",
+  },
+];
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Bästa robotdammsugare 2026 | Köpklart</title>
+    <meta
+      name="description"
+      content="Vi jämför robotdammsugare och hjälper dig hitta rätt modell för ditt hem."
+    />
+  </head>
+
+  <body>
+    <header>
+      <a href="/" class="logo">Köpklart</a>
+
+      <nav>
+        <a href="/">Hem</a>
+        <a href="/robotdammsugare">Robotdammsugare</a>
+        <a href="/guider">Guider</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Köpguide 2026</p>
+
+        <h1>Bästa robotdammsugarna 2026</h1>
+
+        <p>
+          Vi jämför populära robotdammsugare för att hjälpa dig hitta
+          rätt modell för ditt hem och din budget.
+        </p>
+      </section>
+
+      <section>
+        <h2>Våra rekommendationer</h2>
+
+       {
+  products.map((product) => (
+    <ProductCard
+      name={product.name}
+      description={product.description}
+      price={product.price}
+      badge="Vårt val"
+    />
+  ))
+}
+      </section>
+    </main>
+  </body>
+</html>
