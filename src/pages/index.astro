@@ -1,60 +1,78 @@
 ---
+import { getCollection } from "astro:content";
 import "../styles/global.css";
+
+const articles = await getCollection("articles");
 ---
 
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Köpklart – hjälp att välja rätt</title>
+
+    <title>Köpklart – Hjälp att välja rätt produkt</title>
+
     <meta
       name="description"
-      content="Köpklart hjälper dig att jämföra produkter och hitta rätt köp."
+      content="Köpguider och jämförelser som hjälper dig hitta rätt produkt."
     />
   </head>
 
   <body>
-    <header>
+    <header class="site-header">
       <a href="/" class="logo">Köpklart</a>
 
       <nav>
         <a href="/">Hem</a>
         <a href="/robotdammsugare">Robotdammsugare</a>
-        <a href="/guider">Guider</a>
       </nav>
     </header>
 
     <main>
-      <section class="hero">
-        <p class="eyebrow">Köp smartare</p>
+      <section class="home-hero">
+        <div class="hero-content">
+          <p class="eyebrow">Köpklart</p>
 
-        <h1>Vi hjälper dig välja rätt.</h1>
+          <h1>
+            Hitta rätt produkt.
+            <br />
+            Utan krångel.
+          </h1>
 
-        <p>
-          Jämförelser, guider och rekommendationer som gör det enklare
-          att hitta rätt produkt.
-        </p>
-
-        <a href="/robotdammsugare" class="button">
-          Se robotdammsugare
-        </a>
-      </section>
-
-      <section>
-        <h2>Populärt just nu</h2>
-
-        <article>
-          <p>Robotdammsugare</p>
-          <h3>Bästa robotdammsugarna 2026</h3>
-          <p>
-            Vi jämför populära robotdammsugare och hjälper dig hitta
-            rätt modell för ditt hem.
+          <p class="hero-description">
+            Vi jämför produkter, funktioner och priser
+            så att du enklare kan välja rätt.
           </p>
 
-          <a href="/robotdammsugare">
-            Läs guiden →
+          <a href="/robotdammsugare" class="hero-button">
+            Se våra guider →
           </a>
-        </article>
+        </div>
+      </section>
+
+      <section class="home-section">
+        <div class="section-heading">
+          <p class="eyebrow">Guider</p>
+          <h2>Senaste guiderna</h2>
+        </div>
+
+        <div class="article-list">
+          {
+            articles.map((article) => (
+              <article class="article-card">
+                <p class="eyebrow">{article.data.category}</p>
+
+                <h3>{article.data.title}</h3>
+
+                <p>{article.data.description}</p>
+
+                <a href={`/robotdammsugare/${article.id}`}>
+                  Läs guiden →
+                </a>
+              </article>
+            ))
+          }
+        </div>
       </section>
     </main>
   </body>

@@ -4,6 +4,9 @@ interface Props {
   description: string;
   price: string;
   badge?: string;
+  rating?: number;
+  pros?: string[];
+  cons?: string[];
   image?: string;
   link?: string;
 }
@@ -13,6 +16,9 @@ const {
   description,
   price,
   badge,
+  rating,
+  pros = [],
+  cons = [],
   image,
   link = "#",
 } = Astro.props;
@@ -32,10 +38,40 @@ const {
 
     <h3>{name}</h3>
 
-    <p>{description}</p>
+    {rating && (
+      <div class="product-rating">
+        <span>★★★★★</span>
+        <strong>{rating}/5</strong>
+      </div>
+    )}
+
+    <p class="product-description">{description}</p>
+
+    {pros.length > 0 && (
+      <div class="product-pros">
+        <strong>Fördelar</strong>
+
+        <ul>
+          {pros.map((pro) => <li>✓ {pro}</li>)}
+        </ul>
+      </div>
+    )}
+
+    {cons.length > 0 && (
+      <div class="product-cons">
+        <strong>Nackdelar</strong>
+
+        <ul>
+          {cons.map((con) => <li>– {con}</li>)}
+        </ul>
+      </div>
+    )}
 
     <div class="product-bottom">
-      <strong>{price}</strong>
+      <div>
+        <small>Pris</small>
+        <strong class="product-price">{price}</strong>
+      </div>
 
       <a href={link} class="product-button">
         Se pris →

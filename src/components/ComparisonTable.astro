@@ -1,0 +1,41 @@
+---
+interface Product {
+  name: string;
+  rating: number;
+  mopping: string;
+  selfEmptying: string;
+  price: string;
+}
+
+interface Props {
+  products: Product[];
+}
+
+const { products } = Astro.props;
+---
+
+<div class="comparison-wrapper">
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Produkt</th>
+        <th>Betyg</th>
+        <th>Moppning</th>
+        <th>Självtömning</th>
+        <th>Pris</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {products.map((product) => (
+        <tr>
+          <td><strong>{product.name}</strong></td>
+          <td>⭐ {product.rating}/5</td>
+          <td>{product.mopping}</td>
+          <td>{product.selfEmptying}</td>
+          <td><strong>{product.price}</strong></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

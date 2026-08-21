@@ -4,7 +4,9 @@ description: "Vi jämför populära robotdammsugare och hjälper dig hitta rätt
 pubDate: "2026-08-21"
 category: "Robotdammsugare"
 ---
+
 import ProductCard from "../../components/ProductCard.astro";
+import ComparisonTable from "../../components/ComparisonTable.astro";
 
 ## Bäst totalt
 
@@ -12,9 +14,18 @@ Roborock Qrevo är ett intressant alternativ för dig som vill ha en robotdammsu
 
 <ProductCard
   name="Roborock Qrevo"
-  description="Självtömning, moppning och avancerad navigering."
+  description="En komplett robotdammsugare med självtömning, moppning och avancerad navigering."
   price="5 999 kr"
   badge="Bäst totalt"
+  rating={4.7}
+  pros={[
+    "Bra navigering",
+    "Självtömning",
+    "Bra moppfunktion",
+  ]}
+  cons={[
+    "Relativt dyr",
+  ]}
 />
 
 ## Bäst budget
@@ -27,3 +38,68 @@ Om du inte vill lägga lika mycket pengar finns det billigare alternativ.
   price="3 499 kr"
   badge="Bäst budget"
 />
+
+## Jämförelse
+
+<ComparisonTable
+  products={[
+    {
+      name: "Roborock Qrevo",
+      rating: 4.7,
+      mopping: "⭐⭐⭐⭐⭐",
+      selfEmptying: "Ja",
+      price: "5 999 kr",
+    },
+    {
+      name: "Xiaomi Robot Vacuum",
+      rating: 4.2,
+      mopping: "⭐⭐⭐⭐",
+      selfEmptying: "Nej",
+      price: "3 499 kr",
+    },
+  ]}
+/>
+
+## Vad ska man tänka på när man köper robotdammsugare?
+
+Det finns några saker som är extra viktiga att tänka på när du jämför robotdammsugare.
+
+### Navigering
+
+En bra robotdammsugare behöver kunna navigera effektivt mellan möbler och andra hinder. Mer avancerade modeller använder exempelvis laser eller kameror för att skapa en karta över hemmet.
+
+### Moppning
+
+Om du vill att roboten även ska moppa behöver du titta på hur väl den hanterar fläckar och hur bra moppfunktionen är.
+
+### Självtömning
+
+En självtömmande dockningsstation innebär att roboten automatiskt kan tömma dammbehållaren efter städningen. Det kan vara väldigt bekvämt om du vill ha så lite underhåll som möjligt.
+
+### Batteritid
+
+För större bostäder är batteritiden viktigare. En bra robot ska kunna återgå till laddstationen och fortsätta städningen automatiskt om batteriet tar slut.
+
+---
+
+## Vanliga frågor
+
+### Vilken robotdammsugare är bäst?
+
+Det beror på vad du prioriterar. En dyrare modell kan ge bättre navigering, moppning och automatisering, medan en billigare modell kan räcka gott för enklare behov.
+
+### Är robotdammsugare värda pengarna?
+
+För många kan en robotdammsugare spara mycket tid eftersom den kan städa regelbundet utan att du behöver göra jobbet själv.
+
+### Behöver man en robotdammsugare med självtömning?
+
+Inte nödvändigtvis. Självtömning är framför allt en bekvämlighetsfunktion och kan vara extra intressant om du vill minimera underhållet.
+
+---
+
+## Sammanfattning
+
+Det finns ingen robotdammsugare som är bäst för alla. Fundera framför allt på din budget, bostadens storlek och vilka funktioner du faktiskt kommer att använda.
+
+I vår jämförelse är Roborock Qrevo vårt val som bäst totalt, medan Xiaomi Robot Vacuum är ett billigare alternativ.
