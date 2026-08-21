@@ -1,34 +1,20 @@
 ---
-import "../styles/global.css";
-import ProductCard from "../components/ProductCard.astro";
+import { getCollection } from "astro:content";
+import "./../styles/global.css";
 
-const products = [
-  {
-    name: "Roborock Qrevo",
-    description: "En komplett robotdammsugare med självtömning och moppning.",
-    price: "Från 5 999 kr",
-  },
-  {
-    name: "Dreame L40 Ultra",
-    description: "Premiumalternativ med avancerad rengöring och moppning.",
-    price: "Från 8 999 kr",
-  },
-  {
-    name: "Xiaomi Robot Vacuum",
-    description: "Ett billigare alternativ för dig som vill komma undan billigare.",
-    price: "Från 3 499 kr",
-  },
-];
+const articles = await getCollection("articles");
 ---
 
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Bästa robotdammsugare 2026 | Köpklart</title>
+
+    <title>Robotdammsugare 2026 | Köpklart</title>
+
     <meta
       name="description"
-      content="Vi jämför robotdammsugare och hjälper dig hitta rätt modell för ditt hem."
+      content="Guider och jämförelser av robotdammsugare."
     />
   </head>
 
@@ -45,29 +31,36 @@ const products = [
 
     <main>
       <section class="hero">
-        <p class="eyebrow">Köpguide 2026</p>
+        <p class="eyebrow">Köpklart</p>
 
-        <h1>Bästa robotdammsugarna 2026</h1>
+        <h1>Robotdammsugare</h1>
 
         <p>
-          Vi jämför populära robotdammsugare för att hjälpa dig hitta
-          rätt modell för ditt hem och din budget.
+          Våra guider och jämförelser hjälper dig att hitta
+          rätt robotdammsugare.
         </p>
       </section>
 
       <section>
-        <h2>Våra rekommendationer</h2>
+        <h2>Senaste guiderna</h2>
 
-       {
-  products.map((product) => (
-    <ProductCard
-      name={product.name}
-      description={product.description}
-      price={product.price}
-      badge="Vårt val"
-    />
-  ))
-}
+        <div class="article-list">
+          {
+            articles.map((article) => (
+              <article class="article-card">
+                <p class="eyebrow">{article.data.category}</p>
+
+                <h3>{article.data.title}</h3>
+
+                <p>{article.data.description}</p>
+
+                <a href={`/robotdammsugare/${article.id}`}>
+                  Läs guiden →
+                </a>
+              </article>
+            ))
+          }
+        </div>
       </section>
     </main>
   </body>

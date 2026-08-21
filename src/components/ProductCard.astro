@@ -4,27 +4,42 @@ interface Props {
   description: string;
   price: string;
   badge?: string;
+  image?: string;
+  link?: string;
 }
 
-const { name, description, price, badge } = Astro.props;
+const {
+  name,
+  description,
+  price,
+  badge,
+  image,
+  link = "#",
+} = Astro.props;
 ---
 
 <article class="product-card">
-  {badge && <span class="product-badge">{badge}</span>}
-
   <div class="product-image">
-    <span>Produktbild</span>
+    {image ? (
+      <img src={image} alt={name} />
+    ) : (
+      <span>Produktbild</span>
+    )}
   </div>
 
   <div class="product-content">
+    {badge && <span class="product-badge">{badge}</span>}
+
     <h3>{name}</h3>
 
     <p>{description}</p>
 
-    <strong>{price}</strong>
+    <div class="product-bottom">
+      <strong>{price}</strong>
 
-    <a href="#" class="product-button">
-      Se pris →
-    </a>
+      <a href={link} class="product-button">
+        Se pris →
+      </a>
+    </div>
   </div>
 </article>
