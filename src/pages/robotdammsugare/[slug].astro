@@ -30,6 +30,38 @@ const { Content } = await render(article);
       name="description"
       content={article.data.description}
     />
+    <script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": article.data.title,
+  "description": article.data.description,
+  "datePublished": article.data.pubDate.toISOString(),
+  "dateModified": article.data.pubDate.toISOString(),
+  "author": {
+    "@type": "Organization",
+    "name": "Köpklart"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Köpklart"
+  }
+})} />
+
+    <link
+  rel="canonical"
+  href={`https://kopklart.se/robotdammsugare/${article.id}`}
+/>
+
+<meta property="og:title" content={article.data.title} />
+<meta
+  property="og:description"
+  content={article.data.description}
+/>
+<meta property="og:type" content="article" />
+<meta
+  property="og:url"
+  content={`https://kopklart.se/robotdammsugare/${article.id}`}
+/>
   </head>
 
   <body>

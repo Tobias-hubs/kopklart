@@ -1,9 +1,10 @@
 ---
 interface Product {
   name: string;
-  rating: number;
+  suction: string;
   mopping: string;
   selfEmptying: string;
+  navigation: string;
   price: string;
 }
 
@@ -15,27 +16,34 @@ const { products } = Astro.props;
 ---
 
 <div class="comparison-wrapper">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>Produkt</th>
-        <th>Betyg</th>
-        <th>Moppning</th>
-        <th>Självtömning</th>
-        <th>Pris</th>
-      </tr>
-    </thead>
+  <div class="comparison-table">
+    <div class="comparison-row comparison-header">
+      <div>Produkt</div>
+      <div>Sugkraft</div>
+      <div>Moppning</div>
+      <div>Självtömning</div>
+      <div>Navigering</div>
+      <div>Pris</div>
+    </div>
 
-    <tbody>
-      {products.map((product) => (
-        <tr>
-          <td><strong>{product.name}</strong></td>
-          <td>⭐ {product.rating}/5</td>
-          <td>{product.mopping}</td>
-          <td>{product.selfEmptying}</td>
-          <td><strong>{product.price}</strong></td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
+    {products.map((product) => (
+      <div class="comparison-row">
+        <div class="comparison-product">
+          <strong>{product.name}</strong>
+        </div>
+
+        <div>{product.suction}</div>
+
+        <div>{product.mopping}</div>
+
+        <div>{product.selfEmptying}</div>
+
+        <div>{product.navigation}</div>
+
+        <div>
+          <strong>{product.price}</strong>
+        </div>
+      </div>
+    ))}
+  </div>
 </div>
