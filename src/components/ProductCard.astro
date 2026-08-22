@@ -9,6 +9,7 @@ interface Props {
   cons?: string[];
   image?: string;
   link?: string;
+  retailer?: string;
 }
 
 const {
@@ -21,59 +22,88 @@ const {
   cons = [],
   image,
   link = "#",
+  retailer,
 } = Astro.props;
 ---
 
 <article class="product-card">
   <div class="product-image">
     {image ? (
-      <img src={image} alt={name} />
+      <img src={image} alt={name} loading="lazy" />
     ) : (
-      <span>Produktbild</span>
+      <div class="product-image-placeholder">
+        Produktbild
+      </div>
     )}
   </div>
 
   <div class="product-content">
-    {badge && <span class="product-badge">{badge}</span>}
+    <div class="product-top">
+      {badge && (
+        <span class="product-badge">
+          {badge}
+        </span>
+      )}
 
-    <h3>{name}</h3>
+      <h3>{name}</h3>
 
-    {rating && (
-      <div class="product-rating">
-        <span>★★★★★</span>
-        <strong>{rating}/5</strong>
-      </div>
-    )}
+      {rating && (
+        <div class="product-rating">
+          <span class="stars">★★★★★</span>
+          <strong>{rating.toFixed(1)}</strong>
+          <span class="rating-max">/5</span>
+        </div>
+      )}
+    </div>
 
-    <p class="product-description">{description}</p>
+    <p class="product-description">
+      {description}
+    </p>
 
-    {pros.length > 0 && (
-      <div class="product-pros">
-        <strong>Fördelar</strong>
+    {(pros.length > 0 || cons.length > 0) && (
+      <div class="product-features">
+        {pros.length > 0 && (
+          <div class="product-pros">
+            <strong>Fördelar</strong>
 
-        <ul>
-          {pros.map((pro) => <li>✓ {pro}</li>)}
-        </ul>
-      </div>
-    )}
+            <ul>
+              {pros.map((pro) => (
+                <li>✓ {pro}</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-    {cons.length > 0 && (
-      <div class="product-cons">
-        <strong>Nackdelar</strong>
+        {cons.length > 0 && (
+          <div class="product-cons">
+            <strong>Nackdelar</strong>
 
-        <ul>
-          {cons.map((con) => <li>– {con}</li>)}
-        </ul>
+            <ul>
+              {cons.map((con) => (
+                <li>– {con}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     )}
 
     <div class="product-bottom">
-      <div>
-        <small>Pris</small>
-        <strong class="product-price">{price}</strong>
+      <div class="product-price-container">
+        <small>
+          {retailer ? `Pris hos ${retailer}` : "Pris"}
+        </small>
+
+        <strong class="product-price">
+          {price}
+        </strong>
       </div>
 
-      <a href={link} class="product-button">
+      <a
+        href={link}
+        class="product-button"
+        rel={link !== "#" ? "sponsored noopener" : undefined}
+      >
         Se pris →
       </a>
     </div>
