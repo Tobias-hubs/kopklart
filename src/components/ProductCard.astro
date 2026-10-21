@@ -1,3 +1,4 @@
+
 ---
 interface Props {
   name: string;
@@ -21,15 +22,27 @@ const {
   pros = [],
   cons = [],
   image,
-  link = "#",
+  link,
   retailer,
 } = Astro.props;
+
+const hasProductLink =
+  typeof link === "string" &&
+  link.trim() !== "" &&
+  link !== "#";
 ---
 
 <article class="product-card">
   <div class="product-image">
     {image ? (
-      <img src={image} alt={name} loading="lazy" />
+      <img
+        src={image}
+        alt={name}
+        loading="lazy"
+        decoding="async"
+        width="460"
+        height="460"
+      />
     ) : (
       <div class="product-image-placeholder">
         Produktbild
@@ -47,9 +60,11 @@ const {
 
       <h3>{name}</h3>
 
-      {rating && (
+      {rating !== undefined && (
         <div class="product-rating">
-          <span class="stars">★★★★★</span>
+          <span class="stars" aria-hidden="true">
+            ★★★★★
+          </span>
           <strong>{rating.toFixed(1)}</strong>
           <span class="rating-max">/5</span>
         </div>
@@ -65,7 +80,6 @@ const {
         {pros.length > 0 && (
           <div class="product-pros">
             <strong>Fördelar</strong>
-
             <ul>
               {pros.map((pro) => (
                 <li>✓ {pro}</li>
@@ -77,7 +91,6 @@ const {
         {cons.length > 0 && (
           <div class="product-cons">
             <strong>Nackdelar</strong>
-
             <ul>
               {cons.map((con) => (
                 <li>– {con}</li>
@@ -99,13 +112,16 @@ const {
         </strong>
       </div>
 
-      <a
-        href={link}
-        class="product-button"
-        rel={link !== "#" ? "sponsored noopener" : undefined}
-      >
-        Se pris →
-      </a>
+      {hasProductLink && (
+        <a
+          href={link}
+          class="product-button"
+          rel="sponsored noopener"
+          target="_blank"
+        >
+          Se pris →
+        </a>
+      )}
     </div>
   </div>
 </article>
