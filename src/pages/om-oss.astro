@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
 ---
 
 <html lang="sv">
@@ -16,14 +17,7 @@ import "../styles/global.css";
   </head>
 
   <body>
-    <header class="site-header">
-      <a href="/" class="logo">Köpklart</a>
-
-      <nav>
-        <a href="/">Hem</a>
-        <a href="/robotdammsugare/">Robotdammsugare</a>
-      </nav>
-    </header>
+    <Navbar />
 
     <main class="category-page">
       <section class="category-hero">

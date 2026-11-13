@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import "../../styles/global.css";
+import Navbar from "../../components/Navbar.astro";
 
 const articles = await getCollection("articles");
 ---
@@ -24,16 +25,7 @@ const articles = await getCollection("articles");
   
 
   <body>
-    <header class="site-header">
-  <a href="/" class="logo">Köpklart</a>
-
-  <nav>
-    <a href="/">Hem</a>
-    <a href="/robotdammsugare/">Robotdammsugare</a>
-    <a href="/om-oss/">Om oss</a>
-    <a href="/kontakt/">Kontakt</a>
-  </nav>
-</header>
+    <Navbar />
 
     <main>
       <section class="home-hero">

@@ -1,0 +1,57 @@
+
+<header class="site-header">
+  <a href="/" class="logo">Köpklart</a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-label="Öppna meny"
+    aria-expanded="false"
+    aria-controls="main-navigation"
+  >
+    ☰
+  </button>
+
+  <nav class="mobile-nav" id="main-navigation">
+    <a href="/">Hem</a>
+    <a href="/robotdammsugare/">Robotdammsugare</a>
+    <a href="/om-oss/">Om oss</a>
+    <a href="/kontakt/">Kontakt</a>
+    <a href="/integritetspolicy/">Integritetspolicy</a>
+  </nav>
+</header>
+
+<script>
+  const menuButton = document.querySelector<HTMLButtonElement>(".menu-toggle");
+  const navigation = document.querySelector<HTMLElement>("#main-navigation");
+
+  if (menuButton && navigation) {
+    const closeMenu = () => {
+      navigation.classList.remove("menu-open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Öppna meny");
+      menuButton.textContent = "☰";
+    };
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("menu-open");
+
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Stäng meny" : "Öppna meny"
+      );
+      menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+  }
+</script>

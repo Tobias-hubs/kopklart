@@ -823,3 +823,53 @@ a {
     border-radius: 12px;
   }
 }
+
+
+/* Hamburger-menyn */
+.menu-toggle {
+  display: none;
+  border: 1px solid #dededb;
+  border-radius: 8px;
+  background: white;
+  color: #171717;
+  padding: 8px 12px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    position: relative;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .site-header nav.mobile-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    order: 3;
+    padding-top: 8px;
+  }
+
+  .site-header nav.mobile-nav.menu-open {
+    display: flex;
+  }
+
+  .site-header nav.mobile-nav a {
+    padding: 12px 0;
+    border-top: 1px solid #e7e7e4;
+  }
+}
+
+@media (min-width: 701px) {
+  .menu-toggle {
+    display: none;
+  }
+}
