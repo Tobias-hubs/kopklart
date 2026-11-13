@@ -10,7 +10,6 @@ interface Props {
   cons?: string[];
   image?: string;
   link?: string;
-  retailer?: string;
 }
 
 const {
@@ -23,7 +22,6 @@ const {
   cons = [],
   image,
   link,
-  retailer,
 } = Astro.props;
 
 const hasProductLink =
@@ -102,15 +100,13 @@ const hasProductLink =
     )}
 
     <div class="product-bottom">
-      <div class="product-price-container">
-        <small>
-          {retailer ? `Pris hos ${retailer}` : "Pris"}
-        </small>
+    <div class="product-price-container">
+  <small>Prisuppgift</small>
 
-        <strong class="product-price">
-          {price}
-        </strong>
-      </div>
+  <strong class="product-price">
+    {price}
+  </strong>
+</div>
 
       {hasProductLink && (
         <a
@@ -119,7 +115,7 @@ const hasProductLink =
           rel="sponsored noopener"
           target="_blank"
         >
-          Se pris →
+         Se hos återförsäljare →
         </a>
       )}
     </div>

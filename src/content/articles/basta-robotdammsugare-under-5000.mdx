@@ -1,9 +1,12 @@
+
 ---
 title: "Bästa robotdammsugarna under 5 000 kr"
 description: "Jämför robotdammsugare under 5 000 kr och hitta en modell med rätt kombination av sugkraft, moppning och smarta funktioner."
 pubDate: "2026-11-12"
 category: "Robotdammsugare"
 ---
+import ProductCard from "../../components/ProductCard.astro";
+import ComparisonTable from "../../components/ComparisonTable.astro";
 
 Det behöver inte kosta en förmögenhet att köpa en robotdammsugare. I dag finns det modeller under 5 000 kronor som erbjuder funktioner som tidigare främst fanns i betydligt dyrare alternativ.
 
@@ -23,24 +26,33 @@ I prisklassen under 5 000 kronor kan du hitta robotdammsugare med flera användb
 
 Det finns däremot skillnader mellan modellerna. En billigare robot kan exempelvis ha en enklare moppfunktion eller sämre hinderigenkänning än ett dyrare alternativ.
 
+
 ## Våra rekommendationer
 
 ### 1. Dreame D20 Ultra
 
 Dreame D20 Ultra är ett intressant alternativ för dig som vill ha många funktioner utan att gå upp i en betydligt högre prisklass.
 
-Enligt tillverkaren har modellen en sugkraft på upp till 13 000 Pa och dubbla roterande moppar. Den tillhör också kategorin robotdammsugare med en mer avancerad dockningsstation som hanterar flera delar av underhållet automatiskt.
+Enligt tillverkaren har modellen en sugkraft på upp till 13 000 Pa och dubbla roterande moppar. Den har också en mer avancerad dockningsstation som hanterar flera delar av underhållet automatiskt.
 
-**Fördelar:**
-- Upp till 13 000 Pa angiven sugkraft.
-- Dubbla roterande moppar.
-- Multifunktionell dockningsstation.
-- Lasernavigering och hinderigenkänning.
-
-**Nackdelar:**
-- Dockningsstationen kräver mer utrymme.
-- Fler funktioner innebär fler delar att underhålla.
-- Moppfunktionen ersätter inte alltid vanlig golvrengöring.
+<ProductCard
+  name="Dreame D20 Ultra"
+  description="En robotdammsugare med upp till 13 000 Pa angiven sugkraft, dubbla roterande moppar och multifunktionell dockningsstation."
+  price="Se aktuellt pris"
+  badge="Mångsidigt alternativ"
+  image="/images/products/Dreame-product_1.jpg"
+  pros={[
+    "Upp till 13 000 Pa angiven sugkraft",
+    "Dubbla roterande moppar",
+    "Multifunktionell dockningsstation",
+    "Lasernavigering och hinderigenkänning",
+  ]}
+  cons={[
+    "Dockningsstationen kräver mer utrymme",
+    "Fler funktioner innebär fler delar att underhålla",
+    "Moppfunktionen ersätter inte alltid vanlig golvrengöring",
+  ]}
+/>
 
 **Passar dig som:** Vill ha en robotdammsugare som kan sköta både dammsugning och moppning med så lite manuellt arbete som möjligt.
 
@@ -50,29 +62,53 @@ Roborock Q10 VF+ är ett alternativ för dig som framför allt prioriterar damms
 
 Modellen har enligt Roborocks produktinformation upp till 10 000 Pa sugkraft, PreciSense LiDAR-navigering och VibraRise 2.0-moppning. Plus-versionen har dessutom en station som automatiskt tömmer robotens dammbehållare.
 
-**Fördelar:**
-- Upp till 10 000 Pa angiven sugkraft.
-- LiDAR-navigering.
-- Vibrerande moppfunktion.
-- Automatisk tömning av dammbehållaren.
-
-**Nackdelar:**
-- Moppfunktionen är enklare än hos modeller med dubbla roterande moppar.
-- Q10-serien finns i flera varianter, så kontrollera att du väljer VF+.
+<ProductCard
+  name="Roborock Q10 VF+"
+  description="En robotdammsugare med upp till 10 000 Pa angiven sugkraft, LiDAR-navigering, vibrerande moppfunktion och automatisk tömning."
+  price="Se aktuellt pris"
+  badge="Prisvärt alternativ"
+  image="/images/products/roborock vf.webp"
+  pros={[
+    "Upp till 10 000 Pa angiven sugkraft",
+    "LiDAR-navigering",
+    "Vibrerande moppfunktion",
+    "Automatisk tömning av dammbehållaren",
+  ]}
+  cons={[
+    "Moppfunktionen är enklare än hos modeller med dubbla roterande moppar",
+    "Q10-serien finns i flera varianter, så kontrollera att du väljer VF+",
+  ]}
+/>
 
 **Passar dig som:** Vill automatisera den dagliga dammsugningen och slippa tömma dammbehållaren lika ofta.
 
 ## Jämförelse mellan robotdammsugarna
 
-| Egenskap | Dreame D20 Ultra | Roborock Q10 VF+ |
-|---|---|---|
-| Angiven sugkraft | 13 000 Pa | 10 000 Pa |
-| Moppning | Dubbla roterande moppar | VibraRise 2.0 |
-| Navigering | Laser | PreciSense LiDAR |
-| Automatisk tömning | Ja | Ja |
-| Dockningsstation | Multifunktionell | Självtömning |
+Här är en översikt över några av de viktigaste skillnaderna mellan modellerna.
+
+<ComparisonTable
+  products={[
+    {
+      name: "Dreame D20 Ultra",
+      suction: "13 000 Pa",
+      mopping: "Dubbla roterande moppar",
+      selfEmptying: "Ja",
+      navigation: "Laser",
+      price: "Se aktuellt pris",
+    },
+    {
+      name: "Roborock Q10 VF+",
+      suction: "10 000 Pa",
+      mopping: "VibraRise 2.0",
+      selfEmptying: "Ja",
+      navigation: "PreciSense LiDAR",
+      price: "Se aktuellt pris",
+    },
+  ]}
+/>
 
 Observera att sugkraften anges av respektive tillverkare. Ett högre Pa-värde innebär inte automatiskt att roboten städar bättre i alla situationer.
+
 
 ## Vad ska man tänka på när man köper robotdammsugare?
 
